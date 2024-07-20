@@ -55,12 +55,8 @@ export class Car {
     }
 
     stopDrive() {
-        if (this.speed === 0) {
-            return 'You already stopped.';
-        } else {
-            this.speed = 0;
-            return 'You stopped.';
-        }
+        return this.speed === 0 ? 'You already stopped.'
+            : (this.speed = 0, 'You stopped.');
     }
 
     addFuel() {
