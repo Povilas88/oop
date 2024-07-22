@@ -83,9 +83,23 @@ console.log(automobilis.addFuel());
 console.log(automobilis.startDrive());
 console.log(automobilis.turnEngineOn());
 console.log(automobilis.startDrive());
+console.log(automobilis.driving());
+console.log(automobilis.driving());
 console.log(automobilis.stopDrive());
+console.log(automobilis.startDrive());
 console.log(automobilis.stopDrive());
+console.log(automobilis.startDrive());
+console.log(automobilis.stopDrive());
+console.log(automobilis.turnEngineOff());
 console.log(automobilis.addFuel());
+
+
+
+
+
+
+
+
 
 
 

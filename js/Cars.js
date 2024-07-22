@@ -8,7 +8,7 @@ export class Car {
         this.isEngineOn = false;
         this.speed = 0;
         this.fuel = fuelCapacity;
-        this.firstDrive = true;
+        this.firstDrive = false;
     }
 
     turnEngineOn() {
@@ -29,15 +29,15 @@ export class Car {
             return 'Car is already driving';
         } else if (this.fuel <= 0) {
             return 'Add fuel first';
-        }
-        else {
+        } else if (!this.firstDrive) {
             this.firstDrive = true;
-            this.speed++;
             this.avgFuelConsumption *= 2;
-            this.fuel -= this.avgFuelConsumption;
-            return `Car starts to drive, fuel left ${this.fuel}`;
         }
+        this.speed++;
+        this.fuel -= this.avgFuelConsumption;
+        return `Car starts to drive, fuel left ${this.fuel <= 0 ? 0 : this.fuel.toFixed(2)}`;
     }
+
 
     driving() {
         if (this.speed === 0) {
@@ -55,8 +55,17 @@ export class Car {
     }
 
     stopDrive() {
-        return this.speed === 0 ? 'You already stopped.'
-            : (this.speed = 0, 'You stopped.');
+        if (this.speed === 0) {
+            return 'You already stopped.';
+        }
+        if (this.firstDrive) {
+            this.speed = 0;
+            this.firstDrive = false;
+            this.avgFuelConsumption /= 2;
+            return 'You stopped.';
+        }
+        this.speed = 0;
+        return 'You stopped.';
     }
 
     addFuel() {
