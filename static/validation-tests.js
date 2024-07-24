@@ -1,4 +1,4 @@
-import { IsValid } from "./IsValid.js";
+import { IsValid } from "./isValid.js";
 
 console.log(IsValid.username('asd'));
 console.log(IsValid.username('    '));
